@@ -14,6 +14,7 @@ namespace CINEMA_DB.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public string PassportData { get; set; }
-        public DbSet<Position> PositionID { get; set; }
+        public long? PositionID { get; set; }
+        public DbSet<Position> Position { get; set; }
     }
 }

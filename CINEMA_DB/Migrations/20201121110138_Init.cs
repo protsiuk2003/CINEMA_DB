@@ -19,7 +19,8 @@ namespace CINEMA_DB.Migrations
                     CountryOfOrigin = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Actors = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AgeRestrictions = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GenreID = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,7 +50,8 @@ namespace CINEMA_DB.Migrations
                     ID = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Number = table.Column<int>(type: "int", nullable: false),
-                    Occupancy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Occupancy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StaffID = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -88,6 +90,7 @@ namespace CINEMA_DB.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PassportData = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PositionID = table.Column<long>(type: "bigint", nullable: true),
                     SeatID = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>

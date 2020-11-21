@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Genre[0].ID)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Genre[0].Name)
             </th>
             <th>
@@ -25,6 +28,9 @@
     <tbody>
 @foreach (var item in Model.Genre) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

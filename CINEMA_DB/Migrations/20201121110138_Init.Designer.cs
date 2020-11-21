@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CINEMA_DB.Migrations
 {
     [DbContext(typeof(CINEMA_DBContext))]
-    [Migration("20201121081754_Init")]
+    [Migration("20201121110138_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,9 @@ namespace CINEMA_DB.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("GenreID")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Manufacturer")
                         .HasColumnType("nvarchar(max)");
@@ -143,6 +146,9 @@ namespace CINEMA_DB.Migrations
                     b.Property<string>("Occupancy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("StaffID")
+                        .HasColumnType("bigint");
+
                     b.HasKey("ID");
 
                     b.ToTable("Seat");
@@ -170,6 +176,9 @@ namespace CINEMA_DB.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("PositionID")
+                        .HasColumnType("bigint");
+
                     b.Property<long?>("SeatID")
                         .HasColumnType("bigint");
 
@@ -183,37 +192,37 @@ namespace CINEMA_DB.Migrations
             modelBuilder.Entity("CINEMA_DB.Models.Genre", b =>
                 {
                     b.HasOne("CINEMA_DB.Models.Film", null)
-                        .WithMany("GenreID")
+                        .WithMany("Genre")
                         .HasForeignKey("FilmID");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Position", b =>
                 {
                     b.HasOne("CINEMA_DB.Models.Staff", null)
-                        .WithMany("PositionID")
+                        .WithMany("Position")
                         .HasForeignKey("StaffID");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Staff", b =>
                 {
                     b.HasOne("CINEMA_DB.Models.Seat", null)
-                        .WithMany("StaffID")
+                        .WithMany("Staff")
                         .HasForeignKey("SeatID");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Film", b =>
                 {
-                    b.Navigation("GenreID");
+                    b.Navigation("Genre");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Seat", b =>
                 {
-                    b.Navigation("StaffID");
+                    b.Navigation("Staff");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Staff", b =>
                 {
-                    b.Navigation("PositionID");
+                    b.Navigation("Position");
                 });
 #pragma warning restore 612, 618
         }

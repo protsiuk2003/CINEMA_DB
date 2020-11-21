@@ -1,0 +1,45 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Request.TicketsModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Seat
+            </th>
+            <th>
+                Repertoire
+            </th>
+            <th>
+                Staff
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Seat)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.Staff)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model.Repertoire)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

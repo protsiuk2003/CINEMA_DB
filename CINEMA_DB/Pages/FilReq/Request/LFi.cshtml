@@ -1,0 +1,55 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Request.LFiModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Film
+            </th>
+            <th>
+                Geanre
+            </th>
+            <th>
+                GeanreID
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Film)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Genre.First(M => M.ID == item.GenreID).Name
+                    }
+                    catch
+                    {
+                        <p>нет</p>
+                    }
+                }
+
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Genre.First(M => M.ID == item.GenreID).ID
+                    }
+                    catch
+                    {
+                        <p>нет</p>
+                    }
+                }
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

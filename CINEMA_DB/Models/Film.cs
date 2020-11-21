@@ -16,7 +16,8 @@ namespace CINEMA_DB.Models
         public string Actors { get; set; }
         public int AgeRestrictions { get; set; }
         public string Description{ get; set; }
-        public DbSet<Genre> GenreID { get; set; }
+        public long? GenreID { get; set; }
+        public DbSet<Genre> Genre { get; set; }
 
     }
 }

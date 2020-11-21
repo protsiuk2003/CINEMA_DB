@@ -11,6 +11,7 @@ namespace CINEMA_DB.Models
         public long ID { get; set; }
         public int Number { get; set; }
         public string Occupancy { get; set; }
-        public DbSet<Staff> StaffID { get; set; }
+        public long? StaffID { get; set; }
+        public DbSet<Staff> Staff { get; set; }
     }
 }
