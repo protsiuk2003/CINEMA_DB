@@ -4,14 +4,16 @@ using CINEMA_DB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CINEMA_DB.Migrations
 {
     [DbContext(typeof(CINEMA_DBContext))]
-    partial class CINEMA_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20201123134628_Migr2311_1")]
+    partial class Migr2311_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,15 +125,10 @@ namespace CINEMA_DB.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<long?>("SeatID")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("SeatID");
 
                     b.ToTable("Repertoire");
                 });
@@ -188,9 +185,14 @@ namespace CINEMA_DB.Migrations
                     b.Property<long?>("SeatID")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("SeatID1")
+                        .HasColumnType("bigint");
+
                     b.HasKey("ID");
 
                     b.HasIndex("SeatID");
+
+                    b.HasIndex("SeatID1");
 
                     b.ToTable("Staff");
                 });
@@ -209,18 +211,15 @@ namespace CINEMA_DB.Migrations
                         .HasForeignKey("StaffID");
                 });
 
-            modelBuilder.Entity("CINEMA_DB.Models.Repertoire", b =>
+            modelBuilder.Entity("CINEMA_DB.Models.Staff", b =>
                 {
                     b.HasOne("CINEMA_DB.Models.Seat", null)
                         .WithMany("Rep")
                         .HasForeignKey("SeatID");
-                });
 
-            modelBuilder.Entity("CINEMA_DB.Models.Staff", b =>
-                {
                     b.HasOne("CINEMA_DB.Models.Seat", null)
                         .WithMany("Staff")
-                        .HasForeignKey("SeatID");
+                        .HasForeignKey("SeatID1");
                 });
 
             modelBuilder.Entity("CINEMA_DB.Models.Film", b =>

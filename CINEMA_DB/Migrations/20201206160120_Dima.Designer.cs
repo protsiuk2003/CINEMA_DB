@@ -4,14 +4,16 @@ using CINEMA_DB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CINEMA_DB.Migrations
 {
     [DbContext(typeof(CINEMA_DBContext))]
-    partial class CINEMA_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20201206160120_Dima")]
+    partial class Dima
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

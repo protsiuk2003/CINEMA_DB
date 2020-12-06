@@ -1,0 +1,29 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Filter.FilterGenreModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Фильм
+            </th>
+            <th>
+                Жанр
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Film)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Genre.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

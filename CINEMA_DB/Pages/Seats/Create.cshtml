@@ -24,6 +24,16 @@
                 <span asp-validation-for="Seat.Occupancy" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Seat.RepID" class="control-label"></label>
+                <input asp-for="Seat.RepID" class="form-control" />
+                <span asp-validation-for="Seat.RepID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat.StaffID" class="control-label"></label>
+                <input asp-for="Seat.StaffID" class="form-control" />
+                <span asp-validation-for="Seat.StaffID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

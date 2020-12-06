@@ -1,0 +1,29 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Filter.FilterPositionModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Сотрудник
+            </th>
+            <th>
+                Должность
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Staff)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Position.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

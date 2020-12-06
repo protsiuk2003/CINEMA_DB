@@ -1,0 +1,29 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Filter.FilterOccupancyModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Место
+            </th>
+            <th>
+                Занятость
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Seat)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Occupancy)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

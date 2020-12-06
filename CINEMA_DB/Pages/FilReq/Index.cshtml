@@ -19,23 +19,67 @@
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    запросы
+                    Запросы
                 </button>
             </h5>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                <a class="nav-link text-dark" asp-area="" asp-page="Request/PerDep">отдел кадров</a>
+                <div class="card-body">
+                    <a class="nav-link text-dark" asp-area="" asp-page="Request/PerDep">отдел кадров</a>
+                </div>
+                <div class="card-body">
+                    <a class="nav-link text-dark" asp-area="" asp-page="Request/LFi">список фильмов</a>
+                </div>
+                <div class="card-body">
+                    <a class="nav-link text-dark" asp-area="" asp-page="Request/Tickets">билеты</a>
+                </div>
+
             </div>
-            <div class="card-body">
-                <a class="nav-link text-dark" asp-area="" asp-page="Request/LFi">список фильмов</a>
-            </div>
-            <div class="card-body">
-                <a class="nav-link text-dark" asp-area="" asp-page="Request/Tickets">билеты</a>
-            </div>
-            
         </div>
     </div>
-    
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Фильтры
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <form>
+                    Отображения сотрудников по должностям:
+                    <select class="form-control-sm" asp-items="Model.SelPosition" name="id">
+                        <option value="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterPosition" class="btn btn-primary">Отфильтровать</button>
+                </form>
+                <br />
+                <form>
+                    Отображения фильмов по жанрам:
+                    <select class="form-control-sm" asp-items="Model.SelGenres" name="id">
+                        <option value="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterGenre" class="btn btn-primary">Отфильтровать</button>
+                </form>
+                <br />
+                <form>
+                    Отображения билетов по датам:
+                    <input name="id" type="datetime-local" class="form-control-sm" />
+                    <button asp-page="Filter/FilterDate" class="btn btn-primary">Отфильтровать</button>
+                
+                </form>
+                <br />
+                <form>
+                    Отображения мест по занятости:
+                    <select class="form-control-sm" asp-items="Model.SelOccupancy" name="Occup">
+                        <option value="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterOccupancy" class="btn btn-primary">Отфильтровать</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

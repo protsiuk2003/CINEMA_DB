@@ -19,27 +19,40 @@
     <tbody>
         @foreach (var item in Model.Seat)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Number)
-                </td>
-            </tr>
-        }
-        @foreach (var item in Model.Staff)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-            </tr>
-        }
-        @foreach (var item in Model.Repertoire)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-            </tr>
-        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+          <td>  @{
+                
+                    try
+                    {
+                    @Model.Staff.First(s => s.ID == item.StaffID).FullName
+
+                    }
+                    catch
+                    {
+                    <p> нет </p>
+                    }
+                
+            }</td>
+
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Repertoire.First(s => s.ID == item.RepID).ID
+                    }
+                    catch
+
+                    {
+                        <p> нет </p>
+                    }
+                }
+            </td>
+
+        </tr>
+
+         }
     </tbody>
 </table>

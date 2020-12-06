@@ -1,0 +1,29 @@
+﻿@page
+@model CINEMA_DB.Pages.FilReq.Filter.FilterDateModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Дата
+            </th>
+            <th>
+                Цена
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Repertoire)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
